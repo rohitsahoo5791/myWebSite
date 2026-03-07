@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from '../context/AuthContext';
 import ProtectedRoute from '../components/ProtectedRoute';
 import HomePage from './pages/HomePage';
@@ -11,12 +11,12 @@ export default function App() {
   return (
     <AuthProvider>
       <div className="min-h-screen bg-gray-50">
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/curriculum/:trackId" element={<CurriculumPage />} />
             <Route path="/curriculum/:curriculumId/project/:projectId" element={<ProjectDetailsPage />} />
-            
+
             {/* Admin Routes */}
             <Route path="/admin/login" element={<AdminLoginPage />} />
             <Route
@@ -28,7 +28,7 @@ export default function App() {
               }
             />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     </AuthProvider>
   );

@@ -11,7 +11,8 @@ export const loginAdmin = async (email: string, password: string) => {
 
   const payload = { adminId: admin.id, email: admin.email };
   const secret = process.env.JWT_SECRET!;
-  const options: SignOptions = { expiresIn: process.env.JWT_EXPIRES_IN || "7d" };
+  const expiresIn = process.env.JWT_EXPIRES_IN ? parseInt(process.env.JWT_EXPIRES_IN) : 7 * 24 * 60 * 60; // 7 days in seconds
+  const options: SignOptions = { expiresIn };
 
   const token = jwt.sign(payload, secret, options);
 

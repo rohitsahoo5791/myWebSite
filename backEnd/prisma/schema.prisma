@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Curriculum {
+  id          String   @id @default(uuid())
+  title       String
+  domain      String
+  icon        String?   // 👈 flexible icon name
+  color       String?   // 👈 gradient string
+  description String?
+  createdAt   DateTime @default(now())
+
+  projects    Project[]
+}
+
+model Project {
+  id            String   @id @default(uuid())
+  title         String
+  description   String?
+  curriculumId  String
+  createdAt     DateTime @default(now())
+
+  curriculum    Curriculum @relation(fields: [curriculumId], references: [id])
+  sprints       Sprint[]
+}
+
+model Sprint {
+  id           String   @id @default(uuid())
+  title        String
+  summary      String?
+  sprintNumber Int?
+  startDate    DateTime?
+  endDate      DateTime?
+  projectId    String
+  createdAt    DateTime @default(now())
+
+  project      Project   @relation(fields: [projectId], references: [id])
+  resources    Resource[]
+}
+
+model Resource {
+  id        String   @id @default(uuid())
+  label     String   // e.g., "GitHub Repo", "Demo", "Slides", "Video"
+  url       String
+  type      String?  // optional: "github", "video", "doc", "design", etc.
+  sprintId  String
+  createdAt DateTime @default(now())
+
+  sprint    Sprint @relation(fields: [sprintId], references: [id])
+}
+model Admin {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}

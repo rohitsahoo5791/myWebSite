@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
-import { Link } from 'react-router';
-import { 
-  ArrowRight, BookOpen, Layers, GitBranch, Sparkles, Zap, Code, 
+import { Link } from 'react-router-dom';
+import {
+  ArrowRight, BookOpen, Layers, GitBranch, Sparkles, Zap, Code,
   Database, Settings, Monitor, Palette, Cpu, Shield, Rocket, Terminal,
   Package, Smartphone, Cloud, Puzzle, Briefcase, Lightbulb, Brain,
   Wifi, Radio, Gauge, Hammer, Grid, Compass
@@ -85,7 +85,7 @@ export default function LearnSection() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center py-20">
             <p className="text-red-600 font-medium">{error}</p>
-            <button 
+            <button
               onClick={() => window.location.reload()}
               className="mt-4 px-6 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition-colors"
             >
@@ -124,9 +124,9 @@ export default function LearnSection() {
             // Safe key-based gradient lookup with fallback
             const backgroundClass =
               gradientMap[track.color as string] || "bg-cyan-500";
-            
+
             return (
-              
+
               <motion.div
                 key={track.id}
                 initial={{ opacity: 0, y: 30 }}

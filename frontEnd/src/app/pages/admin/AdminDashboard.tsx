@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { BookOpen, FolderOpen, Clock, Layers, LogOut, Menu, X } from 'lucide-react';
 import { useAuth } from '../../../context/AuthContext';
 import { setUnauthorizedCallback } from '../../../../lib/api';
@@ -15,11 +15,11 @@ const TABS: Array<{
   label: string;
   icon: React.ReactNode;
 }> = [
-  { id: 'curriculum', label: 'Curriculum', icon: <BookOpen className="w-5 h-5" /> },
-  { id: 'project', label: 'Projects', icon: <FolderOpen className="w-5 h-5" /> },
-  { id: 'sprint', label: 'Sprints', icon: <Clock className="w-5 h-5" /> },
-  { id: 'resource', label: 'Resources', icon: <Layers className="w-5 h-5" /> },
-];
+    { id: 'curriculum', label: 'Curriculum', icon: <BookOpen className="w-5 h-5" /> },
+    { id: 'project', label: 'Projects', icon: <FolderOpen className="w-5 h-5" /> },
+    { id: 'sprint', label: 'Sprints', icon: <Clock className="w-5 h-5" /> },
+    { id: 'resource', label: 'Resources', icon: <Layers className="w-5 h-5" /> },
+  ];
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
@@ -66,9 +66,8 @@ export default function AdminDashboard() {
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
       <div
-        className={`${
-          sidebarOpen ? 'w-64' : 'w-0'
-        } bg-gray-900 text-white transition-all duration-300 overflow-hidden fixed md:relative h-full z-40`}
+        className={`${sidebarOpen ? 'w-64' : 'w-0'
+          } bg-gray-900 text-white transition-all duration-300 overflow-hidden fixed md:relative h-full z-40`}
       >
         <div className="flex flex-col h-full">
           {/* Header */}
@@ -84,11 +83,10 @@ export default function AdminDashboard() {
                 <button
                   key={tab.id}
                   onClick={() => handleTabChange(tab.id)}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                    activeTab === tab.id
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${activeTab === tab.id
                       ? 'bg-blue-600 text-white'
                       : 'text-gray-300 hover:bg-gray-800'
-                  }`}
+                    }`}
                 >
                   {tab.icon}
                   <span className="font-medium">{tab.label}</span>

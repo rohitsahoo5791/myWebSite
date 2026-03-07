@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router';
+import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Github, ExternalLink, CheckCircle2, AlertCircle, Lightbulb, Image } from 'lucide-react';
 import { motion } from 'motion/react';
 

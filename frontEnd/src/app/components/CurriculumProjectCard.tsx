@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Github, ExternalLink, BookOpen } from 'lucide-react';
 
 interface CurriculumProjectCardProps {
@@ -25,13 +25,12 @@ export default function CurriculumProjectCard({ project, index }: CurriculumProj
             {project.title}
           </h3>
           {project.difficulty && (
-            <span className={`inline-block px-2 py-1 rounded text-xs font-medium ${
-              project.difficulty === 'Advanced'
+            <span className={`inline-block px-2 py-1 rounded text-xs font-medium ${project.difficulty === 'Advanced'
                 ? 'bg-purple-100 text-purple-700'
                 : project.difficulty === 'Intermediate'
-                ? 'bg-blue-100 text-blue-700'
-                : 'bg-green-100 text-green-700'
-            }`}>
+                  ? 'bg-blue-100 text-blue-700'
+                  : 'bg-green-100 text-green-700'
+              }`}>
               {project.difficulty}
             </span>
           )}

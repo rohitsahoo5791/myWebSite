@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router';
+import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchCurriculumFull } from '../../../lib/api';
 import { motion } from 'motion/react';
@@ -103,20 +103,18 @@ export default function CurriculumPage() {
                   </div>
                 )}
                 {data.difficulty && (
-                  <div className={`px-4 py-2 rounded-lg ${
-                    data.difficulty === 'Advanced'
+                  <div className={`px-4 py-2 rounded-lg ${data.difficulty === 'Advanced'
                       ? 'bg-purple-100'
                       : data.difficulty === 'Intermediate'
-                      ? 'bg-blue-100'
-                      : 'bg-green-100'
-                  }`}>
-                    <p className={`text-sm font-medium ${
-                      data.difficulty === 'Advanced'
+                        ? 'bg-blue-100'
+                        : 'bg-green-100'
+                    }`}>
+                    <p className={`text-sm font-medium ${data.difficulty === 'Advanced'
                         ? 'text-purple-700'
                         : data.difficulty === 'Intermediate'
-                        ? 'text-blue-700'
-                        : 'text-green-700'
-                    }`}>
+                          ? 'text-blue-700'
+                          : 'text-green-700'
+                      }`}>
                       {data.difficulty} Level
                     </p>
                   </div>

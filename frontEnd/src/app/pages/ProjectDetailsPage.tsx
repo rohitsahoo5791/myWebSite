@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router';
+import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchCurriculumFull } from '../../../lib/api';
 import { motion } from 'motion/react';
@@ -55,10 +55,10 @@ export default function ProjectDetailsPage() {
     fetchCurriculumFull(curriculumId)
       .then((data) => {
         setCurriculum(data);
-        
+
         // Find the project matching projectId
         const foundProject = data.projects?.find((p: Project) => p.id === projectId);
-        
+
         if (!foundProject) {
           setError('Project not found');
         } else {
@@ -182,20 +182,18 @@ export default function ProjectDetailsPage() {
             {/* Project Meta Info */}
             <div className="flex items-center gap-4 mt-6 flex-wrap">
               {project.difficulty && (
-                <div className={`px-4 py-2 rounded-lg ${
-                  project.difficulty === 'Advanced'
+                <div className={`px-4 py-2 rounded-lg ${project.difficulty === 'Advanced'
                     ? 'bg-purple-100'
                     : project.difficulty === 'Intermediate'
-                    ? 'bg-blue-100'
-                    : 'bg-green-100'
-                }`}>
-                  <p className={`text-sm font-medium ${
-                    project.difficulty === 'Advanced'
+                      ? 'bg-blue-100'
+                      : 'bg-green-100'
+                  }`}>
+                  <p className={`text-sm font-medium ${project.difficulty === 'Advanced'
                       ? 'text-purple-700'
                       : project.difficulty === 'Intermediate'
-                      ? 'text-blue-700'
-                      : 'text-green-700'
-                  }`}>
+                        ? 'text-blue-700'
+                        : 'text-green-700'
+                    }`}>
                     {project.difficulty} Level
                   </p>
                 </div>

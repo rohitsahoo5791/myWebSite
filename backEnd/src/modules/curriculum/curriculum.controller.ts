@@ -41,7 +41,7 @@ export const getCurriculumFullHandler = async (
   res: Response
 ) => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const data = await getCurriculumFull(id);
     res.json(data);
   } catch (error) {
@@ -55,8 +55,8 @@ export const updateCurriculumHandler = async (
   res: Response
 ) => {
   try {
-    const { id } = req.params;
-    
+    const id = req.params.id as string;
+
     if (!id) {
       return res.status(400).json({ error: "ID is required" });
     }
@@ -80,8 +80,8 @@ export const deleteCurriculumHandler = async (
   res: Response
 ) => {
   try {
-    const { id } = req.params;
-    
+    const id = req.params.id as string;
+
     if (!id) {
       return res.status(400).json({ error: "ID is required" });
     }

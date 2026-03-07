@@ -24,7 +24,7 @@ export const getProjectsByCurriculumHandler = async (
   res: Response
 ) => {
   try {
-    const { curriculumId } = req.params;
+    const curriculumId = req.params.curriculumId as string;
     const projects = await getProjectsByCurriculum(curriculumId);
     res.json(projects);
   } catch (error) {
@@ -38,8 +38,8 @@ export const updateProjectHandler = async (
   res: Response
 ) => {
   try {
-    const { id } = req.params;
-    
+    const id = req.params.id as string;
+
     if (!id) {
       return res.status(400).json({ error: "ID is required" });
     }
@@ -63,8 +63,8 @@ export const deleteProjectHandler = async (
   res: Response
 ) => {
   try {
-    const { id } = req.params;
-    
+    const id = req.params.id as string;
+
     if (!id) {
       return res.status(400).json({ error: "ID is required" });
     }

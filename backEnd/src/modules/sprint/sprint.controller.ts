@@ -19,7 +19,7 @@ export const getSprintsByProjectHandler = async (
   res: Response
 ) => {
   try {
-    const { projectId } = req.params;
+    const projectId = req.params.projectId as string;
     const sprints = await getSprintsByProject(projectId);
     res.json(sprints);
   } catch (error) {
@@ -33,8 +33,8 @@ export const updateSprintHandler = async (
   res: Response
 ) => {
   try {
-    const { id } = req.params;
-    
+    const id = req.params.id as string;
+
     if (!id) {
       return res.status(400).json({ error: "ID is required" });
     }
@@ -58,8 +58,8 @@ export const deleteSprintHandler = async (
   res: Response
 ) => {
   try {
-    const { id } = req.params;
-    
+    const id = req.params.id as string;
+
     if (!id) {
       return res.status(400).json({ error: "ID is required" });
     }

@@ -24,7 +24,7 @@ export const getResourcesBySprintHandler = async (
   res: Response
 ) => {
   try {
-    const { sprintId } = req.params;
+    const sprintId = req.params.sprintId as string;
     const resources = await getResourcesBySprint(sprintId);
     res.json(resources);
   } catch (error) {
@@ -37,8 +37,8 @@ export const updateResourceHandler = async (
   res: Response
 ) => {
   try {
-    const { id } = req.params;
-    
+    const id = req.params.id as string;
+
     if (!id) {
       return res.status(400).json({ error: "ID is required" });
     }
@@ -62,8 +62,8 @@ export const deleteResourceHandler = async (
   res: Response
 ) => {
   try {
-    const { id } = req.params;
-    
+    const id = req.params.id as string;
+
     if (!id) {
       return res.status(400).json({ error: "ID is required" });
     }

@@ -22,13 +22,13 @@ export default function Hero() {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
               Rohit Kumar Sahoo
             </h1>
-            
+
             <p className="text-2xl md:text-3xl text-cyan-600 mb-6 font-medium">
               Building systems. Learning deeply. Teaching openly.
             </p>
-            
+
             <p className="text-lg text-gray-700 mb-10 leading-relaxed max-w-xl">
-              Software engineer exploring distributed systems, graph theory, Git internals, 
+              Software engineer exploring distributed systems, graph theory, Git internals,
               and developer experience. I document everything I learn.
             </p>
 
@@ -40,14 +40,14 @@ export default function Hero() {
                 Explore Curriculum
                 <ArrowRight className="w-5 h-5" />
               </button>
-              
+
               <button
                 onClick={() => scrollToSection('projects')}
                 className="px-8 py-4 bg-white text-gray-900 rounded-lg font-medium hover:bg-gray-100 transition-all border border-gray-300"
               >
                 View Projects
               </button>
-              
+
               <a
                 href="https://github.com/rohitsahoo5791"
                 target="_blank"
@@ -79,12 +79,12 @@ export default function Hero() {
                 }}
                 className="absolute -inset-4 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur-2xl opacity-30"
               />
-              
+
               {/* Profile Picture Container */}
               <div className="relative z-10">
                 <div className="w-80 h-80 rounded-full overflow-hidden border-8 border-white shadow-2xl">
                   <img
-                    src="rohit.jpg"
+                    src="Rohit.jpg"
                     alt="Rohit Kumar Sahoo"
                     className="w-full h-full object-cover"
                   />
